@@ -3,7 +3,9 @@
         <div v-if="error" class="error">
             <p>{{ error }}</p>
         </div>
-
+        <div>
+            <router-link :to="{ name: 'users.create' }">Add User</router-link>
+        </div>
         <ul v-if="users">
             <li v-for="{ id, name, email } in users">
                 <strong>Name:</strong> {{ name }},
