@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+  laravel:
+    build:
+      context: './docker/application'
+      args:
+        uid: ${UID}
+    container_name: laravel
+    environment:
+      - APACHE_RUN_USER=#${UID}
+      - APACHE_RUN_GROUP=#${UID}
+    depends_on:
+      - db
+    volumes:
+      - ./:/var/www/html/laravel/
+    ports:
+      - 8080:80
+    networks:
+      devsquad-network:
+        ipv4_address: 172.28.1.2
+
+  db:
+    image: mysql:5.7
+    container_name: laravel-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=securerootpassword
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    networks:
+      devsquad-network:
+        ipv4_address: 172.28.1.1
+
+networks:
+  devsquad-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
