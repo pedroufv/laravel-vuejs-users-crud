@@ -16,7 +16,7 @@ services:
     ports:
       - 8080:80
     networks:
-      devsquad-network:
+      laravel-network:
         ipv4_address: 172.28.1.2
 
   db:
@@ -30,11 +30,11 @@ services:
     volumes:
       - ./docker/mysql:/var/lib/mysql
     networks:
-      devsquad-network:
+      laravel-network:
         ipv4_address: 172.28.1.1
 
 networks:
-  devsquad-network:
+  laravel-network:
     driver: bridge
     ipam:
       config:
