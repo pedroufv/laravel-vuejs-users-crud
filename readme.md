@@ -1,6 +1,22 @@
 ## Tutorial on Laravel News
 - [Building a Vue SPA With Laravel Part 6](https://laravel-news.com/building-a-vue-spa-with-laravel-part-6)
 
+## Install
+1. clone project ```git clone https://github.com/pedroufv/laravel-vuejs-users-crud```
+2. install dependencies ```composer install``` and `npm install`
+3. copy file .env.exemple and rename .env ```cp .env.example .env```
+4. change .env settings
+5. generate key ```php artisan key:generate```
+7. create database ```echo "create database {dbname}" | mysql -u {username} -p```
+8. run migrate ```php artisan migrate --seed```
+
+## How to run this project with docker?
+- run docker `docker-compose build && docker-compose up -d`
+- run migrations `docker-compose exec --user=dev laravel bash -c "php ./ecommerce/artisan migrate --seed"` 
+- open hosts `sudo vim /etc/hosts`
+- add host `127.0.0.1   dev.local`
+- access `http://dev.local:8080` on browser
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
