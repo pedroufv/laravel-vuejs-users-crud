@@ -1,3 +1,6 @@
+## Tutorial on Laravel News
+- [Building a Vue SPA With Laravel Part 6](https://laravel-news.com/building-a-vue-spa-with-laravel-part-6)
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
